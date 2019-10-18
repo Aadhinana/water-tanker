@@ -59,18 +59,18 @@ let KidsFinal = document.querySelector('#Kids-reading-final');
 
 
 submitButton.addEventListener('click', (e) => {
-    let nvmDiff = document.querySelector('#NvM-diff').innerHTML = nvmFinal.value - nvmInitial.value;
-    let SuhanaDiff = document.querySelector('#Suhana-diff').innerHTML = SuhanaFinal.value - SuhanaInitial.value;
-    let AlhponseDiff = document.querySelector('#Alphonse-diff').innerHTML = AlhponseFinal.value - AlhponseInitial.value;
-    let NagamaniDiff = document.querySelector('#Nagamani-diff').innerHTML = NagamaniFinal.value - NagamaniInitial.value;
-    let JkDiff = document.querySelector('#Jk-diff').innerHTML = JkFinal.value - JkInitial.value;
-    let VictorDiff = document.querySelector('#Victor-diff').innerHTML = VictorFinal.value - VictorInitial.value;
-    let RameshDiff = document.querySelector('#Ramesh-diff').innerHTML = RameshFinal.value - RameshInitial.value;
-    let KidsDiff = document.querySelector('#Kids-diff').innerHTML = KidsFinal.value - KidsInitial.value;
+    let nvmDiff = nvmFinal.value - nvmInitial.value;
+    let SuhanaDiff = SuhanaFinal.value - SuhanaInitial.value;
+    let AlhponseDiff = AlhponseFinal.value - AlhponseInitial.value;
+    let NagamaniDiff = NagamaniFinal.value - NagamaniInitial.value;
+    let JkDiff = JkFinal.value - JkInitial.value;
+    let VictorDiff = VictorFinal.value - VictorInitial.value;
+    let RameshDiff = RameshFinal.value - RameshInitial.value;
+    let KidsDiff = KidsFinal.value - KidsInitial.value;
 
     // To udpate values in the local storage
-    let initialValue = [nvmFinal.value, SuhanaFinal.value, AlhponseFinal.value, NagamaniFinal.value, JkFinal.value, VictorFinal.value, RameshFinal.value, KidsFinal.value];
-    let finalValue = [nvmInitial.value, SuhanaInitial.value, AlhponseInitial.value, NagamaniInitial.value, JkInitial.value, VictorInitial.value, RameshInitial.value, KidsInitial.value];
+    let initialValue = [nvmInitial.value, SuhanaInitial.value, AlhponseInitial.value, NagamaniInitial.value, JkInitial.value, VictorInitial.value, RameshInitial.value, KidsInitial.value];
+    let finalValue = [nvmFinal.value, SuhanaFinal.value, AlhponseFinal.value, NagamaniFinal.value, JkFinal.value, VictorFinal.value, RameshFinal.value, KidsFinal.value];
 
     localStorage.setItem('initialValue', JSON.stringify(initialValue));
     localStorage.setItem('finalValue', JSON.stringify(finalValue));
