@@ -5,25 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Water Tanker Calculator</title>
+
+    <style>
+      * {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+      .input {
+        display: flex;
+        align-items:center;
+        justify-content: space-evenly;
+        padding: 1rem;
+      }
+      input {
+        margin: 10px;
+        border: 2px solid black;
+      }
+    </style>
   </head>
   <body>
     <h1>Water tanker Calculator</h1>
     <!-- Ask for the total tanker Amount -->
-    <label for="tanker-amount">Tanker Amount</label>
-    <input type="number" id="tanker-amount" name="tanker-amount" value="800"/>
-    <br />
-    <br />
+    <div class="input">
+      <label for="tanker-amount">Tanker Amount</label>
+      <input
+        type="number"
+        id="tanker-amount"
+        name="tanker-amount"
+        value="800"
+      />
+    </div>
     <!-- Ask for how many people and their Names and correspondingly add them to the DOM 
     Also make them interactive? Nice. -->
 
     <label for="number-of-people">Number of people tanker shared among?</label>
-    <input type="number" id="number-of-people" name="number-of-people" value="8"/>
-    <br /><br />
+    <input
+      type="number"
+      id="number-of-people"
+      name="number-of-people"
+      value="8"
+    />
 
-    <h3>Enter their names down below : </h3>
+    <h3>Readings below :</h3>
     <!-- Take reading of the individual persons. In this case 8 people -->
-    <label for="NvM-reading">Reading for NvM</label>
-    <input type="number" id="NvM-reading" name="NvM-reading" />
+    <div class="input">
+      <label for="NvM-reading">Reading for NvM</label>
+      <input
+        type="number"
+        id="NvM-reading-initial"
+        name="NvM-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="NvM-reading-final"
+        name="NvM-reading"
+        placeholder="Final Reading"
+      />
+      <div id="NvM-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Suhana-reading">Reading for Suhana</label>
+      <input
+        type="number"
+        id="Suhana-reading-initial"
+        name="Suhana-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Suhana-reading-final"
+        name="Suhana-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Suhana-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Alphonse-reading">Reading for Alphonse</label>
+      <input
+        type="number"
+        id="Alphonse-reading-initial"
+        name="Alphonse-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Alphonse-reading-final"
+        name="Alphonse-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Alphonse-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Nagamani-reading">Reading for Nagamani</label>
+      <input
+        type="number"
+        id="Nagamani-reading-initial"
+        name="Nagamani-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Nagamani-reading-final"
+        name="Nagamani-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Nagamani-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Jk-reading">Reading for Jk</label>
+      <input
+        type="number"
+        id="Jk-reading-initial"
+        name="Jk-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Jk-reading-final"
+        name="Jk-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Jk-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Victor-reading">Reading for Victor</label>
+      <input
+        type="number"
+        id="Victor-reading-initial"
+        name="Victor-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Victor-reading-final"
+        name="Victor-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Victor-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Ramesh-reading">Reading for Ramesh</label>
+      <input
+        type="number"
+        id="Ramesh-reading-initial"
+        name="Ramesh-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Ramesh-reading-final"
+        name="Ramesh-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Ramesh-diff"></div>
+    </div>
+
+    <div class="input">
+      <label for="Kids-reading">Reading for Kids</label>
+      <input
+        type="number"
+        id="Kids-reading-initial"
+        name="Kids-reading"
+        placeholder="Initial Reading"
+      />
+      <input
+        type="number"
+        id="Kids-reading-final"
+        name="Kids-reading"
+        placeholder="Final Reading"
+      />
+      <div id="Kids-diff"></div>
+    </div>
+
+    <button type="submit">Calculate</button>
 
     <script src="./app.js"></script>
   </body>
