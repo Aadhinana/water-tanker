@@ -11,40 +11,52 @@
         text-align: center;
         font-size: 1.2rem;
       }
+      .heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-evenly; */
+      }
       .input {
         display: flex;
-        align-items:center;
-        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-evenly; */
         padding: 1rem;
       }
       input {
         margin: 10px;
         border: 2px solid black;
+        /* max-width: 1.6rem; */
       }
     </style>
   </head>
   <body>
     <h1>Water tanker Calculator</h1>
-    <!-- Ask for the total tanker Amount -->
-    <div class="input">
-      <label for="tanker-amount">Tanker Amount</label>
+    <div class="heading">
+      <!-- Ask for the total tanker Amount -->
+      <div class="">
+        <label for="tanker-amount">Tanker Amount</label>
+        <input
+          type="number"
+          id="tanker-amount"
+          name="tanker-amount"
+          value="800"
+        />
+      </div>
+      <!-- Ask for how many people and their Names and correspondingly add them to the DOM 
+          Also make them interactive? Nice. -->
+
+      <label for="number-of-people"
+        >Number of people tanker shared among?</label
+      >
       <input
         type="number"
-        id="tanker-amount"
-        name="tanker-amount"
-        value="800"
+        id="number-of-people"
+        name="number-of-people"
+        value="8"
       />
     </div>
-    <!-- Ask for how many people and their Names and correspondingly add them to the DOM 
-    Also make them interactive? Nice. -->
-
-    <label for="number-of-people">Number of people tanker shared among?</label>
-    <input
-      type="number"
-      id="number-of-people"
-      name="number-of-people"
-      value="8"
-    />
 
     <h3>Readings below :</h3>
     <!-- Take reading of the individual persons. In this case 8 people -->

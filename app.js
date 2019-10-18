@@ -67,6 +67,7 @@ button.addEventListener('click', (e) => {
     document.querySelector('#Kids-diff').innerHTML = kids
 
 
+    
 
     console.log(tankerAmount, numberOfPeople, nvm, suhana, alphonse, nagamani, jk, victor, ramesh, kids)
     e.preventDefault();
