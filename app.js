@@ -1,12 +1,41 @@
 let tankerAmount = document.querySelector('#tanker-amount');
 let numberOfPeople = document.querySelector('#number-of-people');
-let button = document.querySelector('button');
+let submitButton = document.querySelector('#calculate');
+let changeButton = document.querySelector('#change');
 
 numberOfPeople.addEventListener('keyup', generatePeople);
 
 function generatePeople(e) {
     console.log(e.target.value);
     e.preventDefault();
+}
+
+window.addEventListener('DOMContentLoaded', initialize);
+
+function initialize() {
+    // Get initial readings and final readings and udpate them in the input fields
+    if (localStorage.getItem('initialValue') && localStorage.getItem('finalValue')) {
+        let initialValue = JSON.parse(localStorage.getItem('initialValue'));
+        let finalValue = JSON.parse(localStorage.getItem('finalValue'));
+
+        nvmInitial.value = initialValue[0];
+        SuhanaInitial.value = initialValue[1];
+        AlhponseInitial.value = initialValue[2];
+        NagamaniInitial.value = initialValue[3];
+        JkInitial.value = initialValue[4];
+        VictorInitial.value = initialValue[5];
+        RameshInitial.value = initialValue[6];
+        KidsInitial.value = initialValue[7];
+
+        nvmFinal.value = finalValue[0];
+        SuhanaFinal.value = finalValue[1];
+        AlhponseFinal.value = finalValue[2];
+        NagamaniFinal.value = finalValue[3];
+        JkFinal.value = finalValue[4];
+        VictorFinal.value = finalValue[5];
+        RameshFinal.value = finalValue[6];
+        KidsFinal.value = finalValue[7];
+    }
 }
 
 for (let i = 0; i < parseInt(numberOfPeople.value); i++) { }
@@ -29,15 +58,23 @@ let KidsInitial = document.querySelector('#Kids-reading-initial');
 let KidsFinal = document.querySelector('#Kids-reading-final');
 
 
-button.addEventListener('click', (e) => {
-    let nvmDiff = document.querySelector('#NvM-diff').innerHTML = Math.round(nvmFinal.value) - Math.round(nvmInitial.value);
-    let SuhanaDiff = document.querySelector('#Suhana-diff').innerHTML = Math.round(SuhanaFinal.value) - Math.round(SuhanaInitial.value);
-    let AlhponseDiff = document.querySelector('#Alphonse-diff').innerHTML = Math.round(AlhponseFinal.value) - Math.round(AlhponseInitial.value);
-    let NagamaniDiff = document.querySelector('#Nagamani-diff').innerHTML = Math.round(NagamaniFinal.value) - Math.round(NagamaniInitial.value);
-    let JkDiff = document.querySelector('#Jk-diff').innerHTML = Math.round(JkFinal.value) - Math.round(JkInitial.value);
-    let VictorDiff = document.querySelector('#Victor-diff').innerHTML = Math.round(VictorFinal.value) - Math.round(VictorInitial.value);
-    let RameshDiff = document.querySelector('#Ramesh-diff').innerHTML = Math.round(RameshFinal.value) - Math.round(RameshInitial.value);
-    let KidsDiff = document.querySelector('#Kids-diff').innerHTML = Math.round(KidsFinal.value) - Math.round(KidsInitial.value);
+submitButton.addEventListener('click', (e) => {
+    let nvmDiff = document.querySelector('#NvM-diff').innerHTML = nvmFinal.value - nvmInitial.value;
+    let SuhanaDiff = document.querySelector('#Suhana-diff').innerHTML = SuhanaFinal.value - SuhanaInitial.value;
+    let AlhponseDiff = document.querySelector('#Alphonse-diff').innerHTML = AlhponseFinal.value - AlhponseInitial.value;
+    let NagamaniDiff = document.querySelector('#Nagamani-diff').innerHTML = NagamaniFinal.value - NagamaniInitial.value;
+    let JkDiff = document.querySelector('#Jk-diff').innerHTML = JkFinal.value - JkInitial.value;
+    let VictorDiff = document.querySelector('#Victor-diff').innerHTML = VictorFinal.value - VictorInitial.value;
+    let RameshDiff = document.querySelector('#Ramesh-diff').innerHTML = RameshFinal.value - RameshInitial.value;
+    let KidsDiff = document.querySelector('#Kids-diff').innerHTML = KidsFinal.value - KidsInitial.value;
+
+    // To udpate values in the local storage
+    let initialValue = [nvmFinal.value, SuhanaFinal.value, AlhponseFinal.value, NagamaniFinal.value, JkFinal.value, VictorFinal.value, RameshFinal.value, KidsFinal.value];
+    let finalValue = [nvmInitial.value, SuhanaInitial.value, AlhponseInitial.value, NagamaniInitial.value, JkInitial.value, VictorInitial.value, RameshInitial.value, KidsInitial.value];
+
+    localStorage.setItem('initialValue', JSON.stringify(initialValue));
+    localStorage.setItem('finalValue', JSON.stringify(finalValue));
+
     let totalReading = parseInt(nvmDiff) +
         parseInt(SuhanaDiff) +
         parseInt(AlhponseDiff) +
@@ -46,16 +83,17 @@ button.addEventListener('click', (e) => {
         parseInt(VictorDiff) +
         parseInt(RameshDiff) +
         parseInt(KidsDiff);
+
     let perReadingUnit = parseInt(tankerAmount.value) / parseInt(totalReading);
-    console.log(perReadingUnit);
-    let nvm = nvmDiff * perReadingUnit,
-        suhana = SuhanaDiff * perReadingUnit,
-        alphonse = AlhponseDiff * perReadingUnit,
-        nagamani = NagamaniDiff * perReadingUnit,
-        jk = JkDiff * perReadingUnit,
-        victor = VictorDiff * perReadingUnit,
-        ramesh = RameshDiff * perReadingUnit,
-        kids = KidsDiff * perReadingUnit;
+
+    let nvm = Math.round(nvmDiff * perReadingUnit),
+        suhana = Math.round(SuhanaDiff * perReadingUnit),
+        alphonse = Math.round(AlhponseDiff * perReadingUnit),
+        nagamani = Math.round(NagamaniDiff * perReadingUnit),
+        jk = Math.round(JkDiff * perReadingUnit),
+        victor = Math.round(VictorDiff * perReadingUnit),
+        ramesh = Math.round(RameshDiff * perReadingUnit),
+        kids = Math.round(KidsDiff * perReadingUnit);
 
     document.querySelector('#NvM-diff').innerHTML = nvm
     document.querySelector('#Suhana-diff').innerHTML = suhana
@@ -66,9 +104,26 @@ button.addEventListener('click', (e) => {
     document.querySelector('#Ramesh-diff').innerHTML = ramesh
     document.querySelector('#Kids-diff').innerHTML = kids
 
+    e.preventDefault();
+})
 
-    
+changeButton.addEventListener('click', (e) => {
+    nvmInitial.value = nvmFinal.value;
+    SuhanaInitial.value = SuhanaFinal.value;
+    AlhponseInitial.value = AlhponseFinal.value;
+    NagamaniInitial.value = NagamaniFinal.value;
+    JkInitial.value = JkFinal.value;
+    VictorInitial.value = VictorFinal.value;
+    RameshInitial.value = RameshFinal.value;
+    KidsInitial.value = KidsFinal.value;
 
-    console.log(tankerAmount, numberOfPeople, nvm, suhana, alphonse, nagamani, jk, victor, ramesh, kids)
+    nvmFinal.value = '';
+    SuhanaFinal.value = '';
+    AlhponseFinal.value = '';
+    NagamaniFinal.value = '';
+    JkFinal.value = '';
+    VictorFinal.value = '';
+    RameshFinal.value = '';
+    KidsFinal.value = '';
     e.preventDefault();
 })
