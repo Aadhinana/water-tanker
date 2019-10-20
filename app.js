@@ -2,13 +2,14 @@ let tankerAmount = document.querySelector('#tanker-amount');
 let numberOfPeople = document.querySelector('#number-of-people');
 let submitButton = document.querySelector('#calculate');
 let changeButton = document.querySelector('#change');
+let perReading = document.querySelector('#per-reading');
 
-numberOfPeople.addEventListener('keyup', generatePeople);
+// numberOfPeople.addEventListener('keyup', generatePeople);
 
-function generatePeople(e) {
-    console.log(e.target.value);
-    e.preventDefault();
-}
+// function generatePeople(e) {
+//     console.log(e.target.value);
+//     e.preventDefault();
+// }
 
 window.addEventListener('DOMContentLoaded', initialize);
 
@@ -38,7 +39,7 @@ function initialize() {
     }
 }
 
-for (let i = 0; i < parseInt(numberOfPeople.value); i++) { }
+// for (let i = 0; i < parseInt(numberOfPeople.value); i++) { }
 
 let nvmInitial = document.querySelector('#NvM-reading-initial');
 let nvmFinal = document.querySelector('#NvM-reading-final');
@@ -95,14 +96,14 @@ submitButton.addEventListener('click', (e) => {
         ramesh = Math.round(RameshDiff * perReadingUnit),
         kids = Math.round(KidsDiff * perReadingUnit);
 
-    document.querySelector('#NvM-diff').innerHTML = nvm
-    document.querySelector('#Suhana-diff').innerHTML = suhana
-    document.querySelector('#Alphonse-diff').innerHTML = alphonse
-    document.querySelector('#Nagamani-diff').innerHTML = nagamani
-    document.querySelector('#Jk-diff').innerHTML = jk
-    document.querySelector('#Victor-diff').innerHTML = victor
-    document.querySelector('#Ramesh-diff').innerHTML = ramesh
-    document.querySelector('#Kids-diff').innerHTML = kids
+    document.querySelector('#NvM-diff').innerHTML = `<b>Rs. ${nvm}</b> <br/> Units Consumed: ${nvmDiff}`;
+    document.querySelector('#Suhana-diff').innerHTML = `<b>Rs. ${suhana}</b> <br/> Units Consumed: ${SuhanaDiff}`;
+    document.querySelector('#Alphonse-diff').innerHTML = `<b>Rs. ${alphonse}</b> <br/> Units Consumed: ${AlhponseDiff}`;
+    document.querySelector('#Nagamani-diff').innerHTML = `<b>Rs. ${nagamani}</b> <br/> Units Consumed: ${NagamaniDiff}`;
+    document.querySelector('#Jk-diff').innerHTML = `<b>Rs. ${jk}</b> <br/> Units Consumed: ${JkDiff}`;
+    document.querySelector('#Victor-diff').innerHTML = `<b>Rs. ${victor}</b> <br/> Units Consumed: ${VictorDiff}`;
+    document.querySelector('#Ramesh-diff').innerHTML = `<b>Rs. ${ramesh}</b> <br/> Units Consumed: ${RameshDiff}`;
+    document.querySelector('#Kids-diff').innerHTML = `<b>Rs. ${kids}</b> <br/> Units Consumed: ${KidsDiff}`;
 
     e.preventDefault();
 })
